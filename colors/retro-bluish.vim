@@ -74,7 +74,7 @@ call s:linkGroup("Cursor", "HighlightLine")
 call s:linkGroup("lCursor", "HighlightLine")
 call s:linkGroup("CursorIM", "HighlightLine")
 call s:linkGroup("CursorColumn", "Debug")
-call s:linkGroup("CursorLine", "ScrollReverse")
+call s:setGroup("CursorLine", s:none, s:none, s:underline)
 call s:linkGroup("Directory", "AccentText")
 call s:linkGroup("EndOfBuffer", "NonText")
 call s:linkGroup("TermCursor", "Debug")
@@ -105,8 +105,8 @@ call s:setGroup("FloatBorder", s:none, s:none, s:none)
 call s:linkGroup("FloatTitle", "Debug")
 call s:linkGroup("FloatFooter", "Debug")
 call s:linkGroup("NormalNC", "Normal")
-call s:linkGroup("Pmenu", "HighlightBlock")
-call s:linkGroup("PmenuSel", "HighlightLine")
+call s:linkGroup("Pmenu", "PrimaryText")
+call s:linkGroup("PmenuSel", "HighlightBlock")
 " call s:linkGroup("PmenuKind", "Debug")
 " call s:linkGroup("PmenuKindSel", "Debug")
 call s:linkGroup("PmenuExtra", "HighlightBlock")
@@ -155,6 +155,9 @@ call s:linkGroup("Float", "AccentText")
 
 " Identifier      any variable name
 call s:linkGroup("Identifier", "PrimaryText")
+" Variable        variable names
+call s:linkGroup("@variable.builtin", "PrimaryText")
+call s:linkGroup("@variable.tmux", "PrimaryText")
 " Function        function name (also: methods for classes)
 call s:linkGroup("Function", "PrimaryText")
 "
@@ -173,7 +176,7 @@ call s:linkGroup("Label", "Debug")
 " Exception       try, catch, throw
 call s:linkGroup("Exception", "Debug")
 
-call s:linkGroup("IlluminatedWordRead", "AccentText")
+call s:setGroup("IlluminatedWordRead", s:none, s:none, s:underline)
 
 " Type            int, long, char, etc.
 call s:linkGroup("Type", "PrimaryText")
@@ -200,7 +203,7 @@ call s:linkGroup("Special", "SecondaryText")
 " SpecialChar     special character in a constant
 call s:linkGroup("SpecialChar", "CalloutText")
 " Tag             you can use CTRL-] on this
-call s:linkGroup("Tag", "Debug")
+call s:linkGroup("Tag", "AccentText")
 " Delimiter       character that needs attention
 call s:linkGroup("Delimiter", "SecondaryText")
 " SpecialComment  special things inside a comment
@@ -219,6 +222,30 @@ call s:linkGroup("Error", "Debug")
 
 " Todo            anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 call s:linkGroup("Todo", "Debug")
+
+" zsh highlight groups
+call s:linkGroup( "zshSubstDelim", "CalloutText")
+call s:linkGroup( "zshDeref", "CalloutText")
+
+" man/help docs
+call s:linkGroup("manHeader", "CalloutText")
+call s:linkGroup("manSectionHeading", "CalloutText")
+call s:linkGroup("manReference", "CalloutText")
+
+" Markup
+call s:linkGroup("@markup.heading.git_config", "SecondaryText")
+call s:linkGroup("@markup.heading.1.markdown", "CalloutText")
+call s:linkGroup("@markup.heading.2.markdown", "@markup.heading.1.markdown")
+call s:linkGroup("@markup.heading.3.markdown", "@markup.heading.1.markdown")
+call s:linkGroup("@markup.link.label.markdown_inline", "SecondaryText")
+call s:linkGroup("@markup.link.label.markdown", "SecondaryText")
+call s:linkGroup("@label.markdown", "SecondaryText")
+call s:linkGroup("@markup.link.markdown_inline", "HiddenText")
+call s:linkGroup("@markup.link.url.markdown", "HiddenText")
+
+" Treesitter Context
+call s:linkGroup("TreesitterContextLineNumber", "DisabledText")
+call s:setGroup("TreesitterContextBottom", s:none, s:none, s:underline)
 
 " Notify          notification UI for noice & nvim-notify
 call s:setGroup("NotifyError", s:magenta, s:none, s:none)
@@ -248,4 +275,3 @@ call s:linkGroup("NotifyDEBUGIcon", "NotifyDebug")
 call s:linkGroup("NotifyDEBUGTitle", "NotifyDebug")
 call s:linkGroup("NotifyTRACEIcon", "NotifyTrace")
 call s:linkGroup("NotifyTRACETitle", "NotifyTrace")
-    
