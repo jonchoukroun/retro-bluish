@@ -5,7 +5,7 @@ if exists("syntax_on")
 endif
 set fillchars+=vert:║
 
-let g:colors_name = "retroBluish"
+let g:colors_name = "retro-bluish"
 
 let s:vmode = "gui"
 let s:none = "NONE"
