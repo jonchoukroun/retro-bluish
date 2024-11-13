@@ -227,10 +227,13 @@ call s:linkGroup("Todo", "Debug")
 call s:linkGroup( "zshSubstDelim", "CalloutText")
 call s:linkGroup( "zshDeref", "CalloutText")
 
-" man/help docs
+" Man/help pages
 call s:linkGroup("manHeader", "CalloutText")
 call s:linkGroup("manSectionHeading", "CalloutText")
 call s:linkGroup("manReference", "CalloutText")
+
+" Vim
+call s:setGroup("@label.vim", s:none, s:none, s:none)
 
 " Markup
 call s:linkGroup("@markup.heading.git_config", "SecondaryText")
@@ -275,3 +278,7 @@ call s:linkGroup("NotifyDEBUGIcon", "NotifyDebug")
 call s:linkGroup("NotifyDEBUGTitle", "NotifyDebug")
 call s:linkGroup("NotifyTRACEIcon", "NotifyTrace")
 call s:linkGroup("NotifyTRACETitle", "NotifyTrace")
+
+" LazyGit
+call s:linkGroup("LazyCommitType", "SecondaryText")
+call s:linkGroup("LazyReasonKeys", "SecondaryText")
