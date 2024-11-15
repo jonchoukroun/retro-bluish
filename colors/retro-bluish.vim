@@ -20,7 +20,7 @@ let s:green = "#53f8a6"
 let s:cyan = "#4adfdf"
 let s:purple = "#644384"
 let s:magenta = "#ff57ff"
-let s:red = "#bc5151"
+let s:red = "#e35050"
 let s:yellow = "#a85700"
 
 let s:italic = "italic"
