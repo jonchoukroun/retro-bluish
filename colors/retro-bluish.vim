@@ -19,14 +19,7 @@ let s:green = "#53f8a6"
 let s:cyan = "#4adfdf"
 let s:purple = "#644384"
 let s:magenta = "#ff57ff"
-
-" Older
-" let s:darkred = "#a80000"
-" let s:darkmagenta = "#a800a8"
-let s:darkyellow = "#a85700"
-let s:lightblack = "#575757"
-" let s:lightred = "#ff5757"
-let s:lightyellow = "#ffff57"
+let s:yellow = "#a85700"
 
 let s:italic = "italic"
 let s:bold = "bold"
@@ -56,15 +49,10 @@ call s:setGroup("HiddenText", s:darkblue, s:none, s:none)
 
 call s:setGroup("HighlightLine", s:black, s:green, s:bold)
 call s:setGroup("HighlightBlock", s:black, s:blue, s:bold)
-call s:setGroup("ReverseBackdrop", s:white, s:darkblue, s:none)
+call s:setGroup("Scrollbar", s:none, s:darkblue, s:none)
 
-" DEBUG: use to identify text
+" DEBUG: use on unknown hi groups
 call s:setGroup("Debug", s:black, s:magenta, s:bold)
-
-" Normal text; any text that matches no syntax pattern
-call s:setGroup("Scroll", s:none, s:darkblue, s:none)
-call s:setGroup("ScrollReverse", s:none, s:darkblue, s:none)
-call s:setGroup("WindowBase", s:blue, s:none, s:none)
 
 " Vim default highlight groups
 call s:setGroup("ColorColumn", s:none, s:black, s:none)
@@ -80,7 +68,7 @@ call s:linkGroup("EndOfBuffer", "NonText")
 call s:linkGroup("TermCursor", "Debug")
 call s:linkGroup("TermCursorNC", "Debug")
 call s:linkGroup("ErrorMsg", "WarningText")
-call s:linkGroup("WinSeparator", "HighlightBlock")
+call s:linkGroup("WinSeparator", "Scrollbar")
 call s:linkGroup("Folded", "CalloutText")
 call s:linkGroup("FoldColumn", "NonText")
 call s:linkGroup("SignColumn", "NonText")
@@ -96,10 +84,9 @@ call s:setGroup("MatchParen", s:darkblue, s:blue, s:none)
 call s:linkGroup("ModeMsg", "Debug")
 call s:linkGroup("MsgArea", "CalloutText")
 call s:linkGroup("MsgSeparator", "Debug")
-call s:linkGroup("MoreMsg", "Debug")
+call s:linkGroup("MoreMsg", "PrimaryText")
 call s:linkGroup("NonText", "HiddenText")
 call s:setGroup("Normal", s:blue, s:black, s:none)
-" Need to break out the index at the top
 call s:setGroup("NormalFloat", s:none, s:none, s:none)
 call s:setGroup("FloatBorder", s:none, s:none, s:none)
 call s:linkGroup("FloatTitle", "Debug")
@@ -107,12 +94,12 @@ call s:linkGroup("FloatFooter", "Debug")
 call s:linkGroup("NormalNC", "Normal")
 call s:linkGroup("Pmenu", "PrimaryText")
 call s:linkGroup("PmenuSel", "HighlightBlock")
-" call s:linkGroup("PmenuKind", "Debug")
-" call s:linkGroup("PmenuKindSel", "Debug")
+call s:linkGroup("PmenuKind", "Debug")
+call s:linkGroup("PmenuKindSel", "Debug")
 call s:linkGroup("PmenuExtra", "HighlightBlock")
 call s:linkGroup("PmenuExtraSel", "HighlightLine")
-" call s:linkGroup("PmenuSbar", "Debug")
-" call s:linkGroup("PmenuThumb", "Debug")
+call s:linkGroup("PmenuSbar", "Debug")
+call s:linkGroup("PmenuThumb", "Scrollbar")
 call s:linkGroup("Question", "Debug")
 call s:linkGroup("QuickFixLine", "Debug")
 call s:linkGroup("Search", "HighlightLine")
@@ -126,14 +113,15 @@ call s:linkGroup("StatusLine", "HighlightBlock")
 call s:linkGroup("StatusLineNC", "CalloutText")
 call s:linkGroup("TabLine", "HiddenText")
 call s:linkGroup("TabLineFill", "HiddenText")
-" call s:linkGroup("TabLineSel", "HighlightBlock")
+" Disabled, handled elsewhere
+" call s:linkGroup("TabLineSel", "Debug")
 call s:linkGroup("Title", "Debug")
 call s:linkGroup("Visual", "HighlightBlock")
-" call s:linkGroup("VisualNOS", "HighlightLine")
+call s:linkGroup("VisualNOS", "Debug")
 call s:linkGroup("WarningMsg", "WarningText")
 call s:setGroup("Whitespace", s:none, s:none, s:none)
-" " Wildmenu
-call s:linkGroup("WinBar", "PrimaryText")
+" Wildmenu
+call s:linkGroup("WinBar", "HiddenText")
 call s:linkGroup("WinBarNC", "SubtleCalloutText")
 
 " INFO Recommended group names for syntax highlighting (:help group-names)
@@ -172,7 +160,7 @@ call s:linkGroup("Conditional", "Debug")
 " Repeat          for, do, while, etc.
 call s:linkGroup("Repeat", "Debug")
 " Label           case, default, etc.
-call s:linkGroup("Label", "Debug")
+call s:linkGroup("Label", "SecondaryText")
 " Exception       try, catch, throw
 call s:linkGroup("Exception", "Debug")
 
@@ -252,7 +240,7 @@ call s:setGroup("TreesitterContextBottom", s:none, s:none, s:underline)
 
 " Notify          notification UI for noice & nvim-notify
 call s:setGroup("NotifyError", s:magenta, s:none, s:none)
-call s:setGroup("NotifyWarn", s:darkyellow, s:none, s:none)
+call s:setGroup("NotifyWarn", s:yellow, s:none, s:none)
 call s:setGroup("NotifyInfo", s:blue, s:none, s:none)
 call s:setGroup("NotifyDebug", s:green, s:none, s:none)
 call s:setGroup("NotifyTrace", s:cyan, s:none, s:none)
