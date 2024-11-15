@@ -13,12 +13,14 @@ let s:none = "NONE"
 let s:black = "#010414"
 let s:grey = "#787878"
 let s:white = "#c3c3c3"
+" Base color
 let s:blue = "#53b3f8"
 let s:darkblue = "#20455f"
 let s:green = "#53f8a6"
 let s:cyan = "#4adfdf"
 let s:purple = "#644384"
 let s:magenta = "#ff57ff"
+let s:red = "#bc5151"
 let s:yellow = "#a85700"
 
 let s:italic = "italic"
@@ -43,7 +45,7 @@ call s:setGroup("SecondaryText", s:white, s:none, s:none)
 call s:setGroup("AccentText", s:cyan, s:none, s:none)
 call s:setGroup("CalloutText", s:green, s:none, s:bold)
 call s:setGroup("SubtleCalloutText", s:purple, s:none, s:none)
-call s:setGroup("WarningText", s:magenta, s:none, s:bold)
+call s:setGroup("WarningText", s:red, s:none, s:none)
 call s:setGroup("DisabledText", s:grey, s:none, s:none)
 call s:setGroup("HiddenText", s:darkblue, s:none, s:none)
 
@@ -104,6 +106,8 @@ call s:linkGroup("Question", "Debug")
 call s:linkGroup("QuickFixLine", "Debug")
 call s:linkGroup("Search", "HighlightLine")
 call s:linkGroup("SnippetTabstop", "Debug")
+call s:linkGroup("DiagnosticWarn", "HiddenText")
+call s:linkGroup("DiagnosticError", "WarningText")
 " SpecialKey
 " SpellBad
 " SpellCap
@@ -222,15 +226,19 @@ call s:linkGroup("manReference", "CalloutText")
 
 " Vim
 call s:setGroup("@label.vim", s:none, s:none, s:none)
+call s:linkGroup("helpSectionDelim", "PrimaryText")
+call s:linkGroup("helpHeader", "AccentText")
 
 " Markup
 call s:linkGroup("@markup.heading.git_config", "SecondaryText")
 call s:linkGroup("@markup.heading.1.markdown", "CalloutText")
 call s:linkGroup("@markup.heading.2.markdown", "@markup.heading.1.markdown")
 call s:linkGroup("@markup.heading.3.markdown", "@markup.heading.1.markdown")
+call s:linkGroup("@markup.heading.4.vimdoc", "@markup.heading.1.markdown")
 call s:linkGroup("@markup.link.label.markdown_inline", "SecondaryText")
 call s:linkGroup("@markup.link.label.markdown", "SecondaryText")
 call s:linkGroup("@label.markdown", "SecondaryText")
+call s:linkGroup("@markup.link.vimdoc", "SecondaryText")
 call s:linkGroup("@markup.link.markdown_inline", "HiddenText")
 call s:linkGroup("@markup.link.url.markdown", "HiddenText")
 
@@ -239,7 +247,7 @@ call s:linkGroup("TreesitterContextLineNumber", "DisabledText")
 call s:setGroup("TreesitterContextBottom", s:none, s:none, s:underline)
 
 " Notify          notification UI for noice & nvim-notify
-call s:setGroup("NotifyError", s:magenta, s:none, s:none)
+call s:setGroup("NotifyError", s:red, s:none, s:none)
 call s:setGroup("NotifyWarn", s:yellow, s:none, s:none)
 call s:setGroup("NotifyInfo", s:blue, s:none, s:none)
 call s:setGroup("NotifyDebug", s:green, s:none, s:none)
@@ -270,3 +278,6 @@ call s:linkGroup("NotifyTRACETitle", "NotifyTrace")
 " LazyGit
 call s:linkGroup("LazyCommitType", "SecondaryText")
 call s:linkGroup("LazyReasonKeys", "SecondaryText")
+
+" Telescope
+call s:linkGroup("TelescopeMatching", "CalloutText")
