@@ -138,6 +138,7 @@ call s:linkGroup("Comment", "DisabledText")
 call s:linkGroup("Constant", "PrimaryText")
 " String           a string constant: "this is a string"
 call s:linkGroup("String", "CalloutText")
+call s:linkGroup("@string.special.url.html", "String")
 " Character        a character constant: 'c', '\n'
 call s:linkGroup("Character", "CalloutText")
 " Number           a number constant: 234, 0xff
@@ -233,6 +234,11 @@ call s:linkGroup("helpHeader", "AccentText")
 
 " Markup
 call s:linkGroup("@markup.heading.git_config", "SecondaryText")
+call s:linkGroup("@markup.heading.html", "PrimaryText")
+call s:linkGroup("@markup.heading.1.html", "PrimaryText")
+call s:linkGroup("@markup.heading.2.html", "PrimaryText")
+call s:linkGroup("@markup.heading.3.html", "PrimaryText")
+call s:linkGroup("@markup.heading.4.html", "PrimaryText")
 call s:linkGroup("@markup.heading.1.markdown", "CalloutText")
 call s:linkGroup("@markup.heading.2.markdown", "@markup.heading.1.markdown")
 call s:linkGroup("@markup.heading.3.markdown", "@markup.heading.1.markdown")
@@ -240,6 +246,7 @@ call s:linkGroup("@markup.heading.4.vimdoc", "@markup.heading.1.markdown")
 call s:linkGroup("@markup.link.label.markdown_inline", "SecondaryText")
 call s:linkGroup("@markup.link.label.markdown", "SecondaryText")
 call s:linkGroup("@label.markdown", "SecondaryText")
+call s:linkGroup("@markup.link.label.html", "@spell.html")
 call s:linkGroup("@markup.link.vimdoc", "SecondaryText")
 call s:linkGroup("@markup.link.markdown_inline", "HiddenText")
 call s:linkGroup("@markup.link.url.markdown", "HiddenText")
