@@ -232,6 +232,9 @@ call s:setGroup("@label.vim", s:none, s:none, s:none)
 call s:linkGroup("helpSectionDelim", "PrimaryText")
 call s:linkGroup("helpHeader", "AccentText")
 
+" Attributes (CSS)
+call s:linkGroup("@attribute.css", "SecondaryText")
+
 " Markup
 call s:linkGroup("@markup.heading.git_config", "SecondaryText")
 call s:linkGroup("@markup.heading.html", "PrimaryText")
